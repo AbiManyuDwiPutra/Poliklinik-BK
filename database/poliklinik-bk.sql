@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2024 at 01:25 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Generation Time: Jan 06, 2024 at 04:28 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `poli_bk`
+-- Database: `poliklinik-bk`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +42,8 @@ CREATE TABLE `daftar_poli` (
 
 INSERT INTO `daftar_poli` (`id`, `id_pasien`, `id_jadwal`, `keluhan`, `no_antrian`, `status_periksa`) VALUES
 (1, 1, 2, 'anak saya sakit perut', 1, '1'),
-(2, 3, 3, 'kaki tidak bisa di gerakan', 1, '1');
+(2, 3, 3, 'kaki tidak bisa di gerakan', 1, '1'),
+(3, 4, 3, 'pedot', 2, '0');
 
 -- --------------------------------------------------------
 
@@ -85,9 +85,11 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`id`, `nama`, `password`, `alamat`, `no_hp`, `id_poli`) VALUES
-(1, 'Eqi', '5c0f9faf5b36a70eee40192f72b75632', 'Krobokan', '0837285984', 7),
-(2, 'Altria', '5c0f9faf5b36a70eee40192f72b75632', 'Poncowolo TImur', '08657734838', 2),
-(4, 'Arthur', '5c0f9faf5b36a70eee40192f72b75632', 'Bandungan', '08768494059', 9);
+(1, 'Denny', '5c0f9faf5b36a70eee40192f72b75632', 'Purwodadi', '0837285984', 7),
+(2, 'Rinda', '5c0f9faf5b36a70eee40192f72b75632', 'Semarang Indah', '08657734838', 2),
+(4, 'Andi', '5c0f9faf5b36a70eee40192f72b75632', 'Bandungan', '08768494059', 9),
+(6, 'Norman', 'e13981e25f573df3048f40ffe5ccecfa', 'Palembang', '08987654321', 5),
+(7, 'Rusmin', 'c9fe36c8d9d1639be26dd304c6127967', 'Rokal', '0789456125', 3);
 
 -- --------------------------------------------------------
 
@@ -157,9 +159,10 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`id`, `nama`, `password`, `alamat`, `no_ktp`, `no_hp`, `no_rm`) VALUES
-(1, 'Rama', '5c0f9faf5b36a70eee40192f72b75632', 'Bandungan', '048548549549', '08845743738', '202312-001'),
+(1, 'Roni', '5c0f9faf5b36a70eee40192f72b75632', 'Bandungan', '048548549549', '08845743738', '202312-001'),
 (2, 'Emiya', '5c0f9faf5b36a70eee40192f72b75632', 'Grobokan', '3434337438439', '088463729398', '202312-002'),
-(3, 'gogon', '5c0f9faf5b36a70eee40192f72b75632', 'Surabaya', '50548375734574357', '0834824732472', '202312-003');
+(3, 'Maryadi', '5c0f9faf5b36a70eee40192f72b75632', 'Surabaya', '50548375734574357', '0834824732472', '202312-003'),
+(4, 'rido', '52b29e1aa20c034dcec6015865e269df', 'lampung', '123456789', '08123456789', '202401-004');
 
 -- --------------------------------------------------------
 
@@ -276,7 +279,7 @@ ALTER TABLE `poli`
 -- AUTO_INCREMENT for table `daftar_poli`
 --
 ALTER TABLE `daftar_poli`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `detail_periksa`
@@ -288,7 +291,7 @@ ALTER TABLE `detail_periksa`
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `jadwal_periksa`
@@ -306,7 +309,7 @@ ALTER TABLE `obat`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `periksa`
